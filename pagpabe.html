@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bienvenidos a Comunidad Gaming, un lugar para compartir experiencias, jugar y conectarte con otros gamers de todo el mundo.">
+    <meta property="og:title" content="Comunidad Gaming">
+    <meta property="og:description" content="Únete a nuestra comunidad de gamers y descubre juegos populares, participa en el foro y mucho más.">
+    <meta property="og:image" content="https://example.com/imagen.jpg">
+    <meta property="og:url" content="https://tu-sitio-web.com">
+    <title>Comunidad Gaming</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- Si tienes un archivo CSS para los estilos -->
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 2;
+            padding: 0;
+            background-color: #3a0480;
+            color: #fff7f7;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #660494, #f50000);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        header img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            background-color: #660494;
+            padding: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: #f50000;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #f50000;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        section {
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .game-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .game-card {
+            background-color: #660494;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #1a1616;
+            color: #e4e2e6;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: #f50000;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sección de comentarios */
+        .comentarios-section {
+            background-color: #2c2b2b;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+
+        .comentarios-section h2 {
+            text-align: center;
+            color: #f50000;
+        }
+
+        .comentario {
+            background-color: #3c3b3b;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .comentario h3 {
+            color: #f50000;
+            margin-bottom: 5px;
+        }
+
+        .comentario p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #f50000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff0000;
+        }
+
+        input[type="text"], textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            width: 100%;
+            background-color: #2c2b2b;
+            color: #fff;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #f50000;
+        }
+
+        /* Estilos para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .game-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .game-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+    </style>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+
+    <!-- Encabezado de la página -->
+    <header>
+        <h1>Bienvenidos A LA COMUNIDAD PARABELLUM</h1>
+        <p>Un lugar para los gamers y por los gamers</p>
+        <img src="https://cdn.discordapp.com/attachments/1095906216972132372/1325127747533541538/image.png?ex=677aa8e2&is=67795762&hm=37f337327be99a9ea7066f08267889f146564df06509d358d1a345b4f38b5388&" alt="Logo de la Comunidad Parabellum" />
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#juegos">Juegos Populares</a></li>
+            <li><a href="#foro">Foro</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#comentarios"></a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección de inicio -->
+    <section id="inicio">
+        <h2>Bienvenidos a nuestra comunidad de gaming</h2>
+        <p>En nuestra comunidad encontrarás jugadores de todo el mundo, competiciones, noticias y mucho más sobre tus juegos favoritos.</p>
+        <p>Conectamos a gamers de diferentes plataformas: PC, consolas, y móviles.</p>
+    </section>
+     <!-- Sección de juegos gifs de juegos -->
+     <section id="juegos">
+        <h2>Juegos Populares de la Comunidad</h2>
+        <div class="game-list">
+            <div class="game-card">
+                <!-- GIF de War Thunder -->
+                <img src="https://33.media.tumblr.com/269b0f6d3e100ec2c0e2d17339da2cb9/tumblr_niekxrrclb1s9lpi5o1_400.gif" alt="War Thunder - Juego de simulador de vehículos de guerra" />
+                <h3>War Thunder</h3>
+                <p>A un disparo.</p>
+            </div>
+    
+            <div class="game-card">
+                <!-- GIF de League of Legends -->
+                <img src="https://giffiles.alphacoders.com/141/14114.gif" alt="League of Legends" />
+                <h3>League Of Legends</h3>
+                <p> GRITA DEL INVOCADOR!</p>
+            </div>
+    
+            <div class="game-card">
+                <!-- GIF de hell let loose) -->
+                <img src="https://static.wixstatic.com/media/a27d24_1fee18cadfb042c2b34166318a95e7ed~mv2.gif" alt="Hell let loose " />
+                <h3>Hell let loose</h3>
+                <p>Esto es hell let loose.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Sección de juegos populares -->
+    <section id="juegos">
+        <h2>Juegos Populares de la Comunidad</h2>
+        <div class="game-list">
+            <div class="game-card">
+                <img src="https://warthunder.com/i/opengraph-wt.jpg" alt="War Thunder - Juego de simulador de vehículos de guerra">
+                <h3>War Thunder</h3>
+                <p>Un juego de simulador de vehículos real donde puedes jugar con diferentes vehículos desde los años 30 hasta la actualidad.</p>
+            </div>
+            <div class="game-card">
+                <img src="https://th.bing.com/th/id/R.c77e2337332f456bc020e932078bea90?rik=dpI40eyoTWUjxg&pid=ImgRaw&r=0" alt="League Of Legends">
+                <h3>League Of Legends</h3>
+                <p>Un juego táctico de 5 vs 5 donde los equipos luchan para completar objetivos. ¡Precisión y estrategia en la GRITA DEL INVOCADOR!</p>
+            </div>
+            <div class="game-card">
+                <img src="https://news.xbox.com/en-us/wp-content/uploads/sites/2/2021/12/SpaceMarine2_TemporaryArtwork_4K_logo.jpg" alt="League Of Legends">
+                <h3>Warhammer Space marine 2 </h3>
+                <p>POR EL EMPERADOR,JAJAJA</p>
+            </div>
+            <div class="game-card">
+                <img src="https://cdn1.epicgames.com/spt-assets/0fac3450d5b24587a1d25b5c94676f99/hell-let-loose-rdxhs.jpg" alt="Hell let loose">
+                <h3>Hell let loose</h3>
+                <p>Unete a la experiencia en constante expansion en un juego de disparos ambientando en la 2 guerra mundial de 50 jugadores vs 50 jugadores</p>
+            </div>
+            <div class="game-card">
+                <img src="https://th.bing.com/th/id/OIP.SY_iH2Nbp2eqDv6-PikEKgHaHa?rs=1&pid=ImgDetMain">
+                <h3>Hearts of iron IV</h3>
+                <p>Juego de estrategia belica completa cuarta entrega de la saga de la empresa paradox. </p>
+            </div>
+            <div class="game-card">
+                <img src="https://th.bing.com/th/id/R.7d687f2b4aa06d405ddbe67e4a8e77aa?rik=GiNauNLjJeYLrQ&pid=ImgRaw&r=0">
+                <h3>PUGB</h3>
+                <p>Juego Battle Royal donde gana el ultimo en pie,o equipo en pie. </p>
+            </div>
+                  
+            </div>
+        </div>
+    </section>
+
+            <!-- Más tarjetas de juegos... -->
+        </div>
+    </section>
+
+    <!-- Sección del foro -->
+    <section id="foro">
+        <h2>Únete a nuestro foro</h2>
+        <p>Comparte tus experiencias, estrategias y preguntas sobre tus juegos favoritos. ¡La comunidad está esperando por ti!</p>
+        <a href="https://example.com/foro" target="_blank" rel="noopener noreferrer">Visita nuestro foro aquí</a>
+    </section>
+
+    <!-- Sección de comentarios -->
+    <section id="comentarios" class="comentarios-section">
+        <h2>Comentarios de la Comunidad</h2>
+        
+        <!-- Contenedor de los comentarios -->
+        <div id="comentarios-container">
+            <!-- Aquí se agregarán los comentarios -->
+        </div>
+
+        <!-- Formulario de nuevo comentario -->
+        <form id="comentario-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+
+            <label for="comentario">Comentario:</label>
+            <textarea id="comentario" name="comentario" required placeholder="Escribe tu comentario"></textarea>
+
+            <button type="submit">Enviar Comentario</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Comunidad Parabellum Gaming. Todos los derechos reservados.</p>
+        <p>Síguenos en nuestras redes sociales:</p>
+        <p>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a> |
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a> |
+            <a href="https://discord.gg/CraXJvaq" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i> Discord</a>
+        </p>
+    </footer>
+
+    <!-- Google Sign-In -->
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <script>
+        function onSignIn(googleUser) {
+            const profile = googleUser.getBasicProfile();
+            console.log("Nombre: " + profile.getName());
+            document.querySelector('.g-signin2').classList.add('hidden');
+        }
+
+        // Validación de comentarios
+        const form = document.getElementById('comentario-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const comentario = document.getElementById('comentario').value.trim();
+            if (nombre && comentario) {
+                const newComment = document.createElement('div');
+                newComment.classList.add('comentario');
+                newComment.innerHTML = `<h3>${nombre}</h3><p>${comentario}</p>`;
+                document.getElementById('comentarios-container').appendChild(newComment);
+                form.reset();
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
